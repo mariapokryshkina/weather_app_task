@@ -1,0 +1,61 @@
+@import '@styles';
+
+.search-input{
+	padding-bottom: 30px;
+}
+.weekly-forecast {
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	row-gap: 86px;
+	padding: 40px 100px;
+	background-color: $gray-100;
+
+	h3 {
+		margin-bottom: 30px;
+		font-size: 24px;
+		font-weight: 600;
+	}
+
+	&__days{
+		height: 163px;
+		background-color: $white;
+	}
+
+	&__map {
+		height: 472px;
+	}
+
+	@include tablet-and-more {
+		overflow-y: auto;
+	}
+
+	@include tablet {
+		padding: 40px 20px;
+
+		&__days{
+			height: 190px;
+		}
+
+		&__map {
+			height: 324px;
+		}
+	}
+
+	@include tablet-and-less {
+		row-gap: 65px;
+
+		h3 {
+			font-size: 16px;
+		}
+	}
+
+	@include mobile {
+		height: 472px;
+		padding: 62px 20px 30px;
+
+		&__map {
+			height: 233px;
+		}
+	}
+}
