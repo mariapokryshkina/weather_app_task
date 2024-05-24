@@ -4,7 +4,7 @@ import axios from 'axios';
 import cn from 'classnames';
 
 import './daily-forecast.styles.scss';
-import Cloudy from '/Users/mariapokryshkina/Documents/REACT projects/weather-forecast-test/public/assets/cloudy.svg';
+import Cloudy from '/Users/mariapokryshkina/Documents/REACT projects/weather-forecast-test/public/assets/cloudy.svg'
 import NightStorm from '/Users/mariapokryshkina/Documents/REACT projects/weather-forecast-test/public/assets/night_storm.svg';
 import PartlyCloudy from '/Users/mariapokryshkina/Documents/REACT projects/weather-forecast-test/public/assets/partly_cloudy.svg';
 import PartlyDayStorm from '/Users/mariapokryshkina/Documents/REACT projects/weather-forecast-test/public/assets/partly_day_storm.svg';
@@ -53,7 +53,15 @@ export const DailyForecast: FC<DailyForecastProps> = ({ className }) => {
     const now = new Date();
     const options: Intl.DateTimeFormatOptions = { weekday: 'short', day: 'numeric', month: 'long' };
     setCurrentDate(now.toLocaleDateString('ru-RU', options));
+    const formattedDate = now.toLocaleDateString('ru-RU', options);
+    setCurrentDate(capitalizeFirstLetter(formattedDate));
+
+
   }, []);
+
+    const capitalizeFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  };
 
 
       const getWeatherIcon = (code: number | null) => {
@@ -116,7 +124,7 @@ export const DailyForecast: FC<DailyForecastProps> = ({ className }) => {
         <div>
           <h1> {temperature !== null ? (
               <>
-                {getWeatherIcon(weatherCode)} {`${temperature} градусов`}
+                 {`${temperature} °`} {getWeatherIcon(weatherCode)}
               </>
             ) : (
               'Loading...'
