@@ -119,26 +119,31 @@ export const DailyForecast: FC<DailyForecastProps> = ({ className }) => {
 
   return (
     <section className={cn('daily-forecast', className)}>
-      <div className="daily">
+      <div className="date">
         <h1>{currentDate}</h1>
-        <div>
-          <h1> {temperature !== null ? (
+        </div>
+        <div className="current-temp">
+           {temperature !== null ? (
               <>
                  {`${temperature} °`} {getWeatherIcon(weatherCode)}
               </>
             ) : (
               'Loading...'
-            )}</h1>
+            )}
         </div>
         <div className="min-feel">
-          <div className="min-temp">
-            <h1>{minTemperature !== null ? `мин ${minTemperature}` : 'Loading...'}</h1>
+          <div className="min-temp-text">
+            мин.
+            ощущ
           </div>
-          <div className="feels-like">
-            <h1>{feelsLikeTemperature !== null ? `ощущ ${feelsLikeTemperature}` : 'Loading...'}</h1>
+          <div className="min-feel-degrees">
+            {minTemperature !== null ? `
+             ${minTemperature}°`: 'Loading...' }
+            
+            {feelsLikeTemperature !== null ? `
+            ${feelsLikeTemperature}°` : 'Loading...'}
           </div>
         </div>
-      </div>
     </section>
   );
 };
