@@ -5,16 +5,17 @@
     border-radius: 36px;
 	display: flex;
 	flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 20px;
     width: 128.7px;
     height: 190px;
-    padding: 20px, 17px, 20px, 17px;
+    padding: 20px 17px;
 	background-color: white;
 ;
 
 
-    h1 {
-        text-align: center;
-    }
+   
 
 	h3 {
 		margin-bottom: 30px;
@@ -22,37 +23,6 @@
 		font-weight: 600;
 	}
 
-	@include tablet-and-more {
-		overflow-y: auto;
-	}
 
-	@include tablet {
-		padding: 20px 20px;
-
-		&__days{
-			height: 190px;
-		}
-
-		&__map {
-			height: 324px;
-		}
-	}
-
-	@include tablet-and-less {
-		row-gap: 20px;
-        padding: 20px 20px;
-
-		h3 {
-			font-size: 16px;
-		}
-	}
-
-	@include mobile {
-		height: 472px;
-		padding: 62px 20px 30px;
-
-		&__map {
-			height: 233px;
-		}
-	}
+	
 }
