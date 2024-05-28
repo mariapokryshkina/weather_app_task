@@ -2,6 +2,7 @@
 
 .daily-forecast {
 	box-sizing: border-box;
+	border: 1px;
     border-radius: 36px;
 	display: flex;
 	flex-direction: column;
@@ -11,6 +12,7 @@
     width: 128.7px;
     height: 190px;
     padding: 20px 17px;
+	margin-right: 31.3px;
 	background-color: white;
 ;
 
