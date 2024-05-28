@@ -25,9 +25,15 @@ export const WeeklyForecast: FC<WeeklyForecastProps> = ( {
 					<SearchInput />
 				</div>
 				<h3>Погода на неделю в Санкт-Петербурге</h3>
-				{/* <div className="weekly-forecast__days"> */}
-				<DailyForecast />
-				{/* </div> */}
+				<div className="weekly-forecast__days"> 
+					<DailyForecast />
+					<DailyForecast />
+					<DailyForecast />
+					<DailyForecast />
+					<DailyForecast />
+					<DailyForecast />
+					<DailyForecast />
+				</div>	
 			</section>
 			<section>
 				<h3>Карта погоды</h3>

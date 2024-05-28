@@ -17,6 +17,12 @@
 		font-weight: 600;
 	}
 
+	.weekly-forecast__days{
+		display: flex;
+		flex-direction: row;
+		padding-right: 31 px;
+	}
+
 	&__days{
 		height: 163px;
 		background-color: $white;
@@ -25,6 +31,7 @@
 	&__map {
 		height: 472px;
 	}
+
 
 	@include tablet-and-more {
 		overflow-y: auto;

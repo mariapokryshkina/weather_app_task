@@ -125,7 +125,7 @@ export const DailyForecast: FC<DailyForecastProps> = ({ className }) => {
         <div className="current-temp">
            {temperature !== null ? (
               <>
-                 {`${temperature} °`} {getWeatherIcon(weatherCode)}
+                 {`${temperature}°`} {getWeatherIcon(weatherCode)}
               </>
             ) : (
               'Loading...'
