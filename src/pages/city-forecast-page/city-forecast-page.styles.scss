@@ -12,6 +12,7 @@
 
 	&__forecast {
 		flex-grow: 1;
+		width: 620px;
 	}
 
 	@include desktop {

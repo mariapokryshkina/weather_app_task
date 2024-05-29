@@ -1,9 +1,9 @@
-// src/components/DailyForecast.tsx
 import { FC, useEffect, useState } from 'react';
 import axios from 'axios';
 import cn from 'classnames';
 
-import './daily-forecast.styles.scss';
+import './daily-forecast_current.styles.scss';
+
 import Cloudy from '/Users/mariapokryshkina/Documents/REACT projects/weather-forecast-test/public/assets/cloudy.svg'
 import NightStorm from '/Users/mariapokryshkina/Documents/REACT projects/weather-forecast-test/public/assets/night_storm.svg';
 import PartlyCloudy from '/Users/mariapokryshkina/Documents/REACT projects/weather-forecast-test/public/assets/partly_cloudy.svg';
@@ -14,21 +14,18 @@ import SlightTouchHappyday from '/Users/mariapokryshkina/Documents/REACT project
 import Snowy from '/Users/mariapokryshkina/Documents/REACT projects/weather-forecast-test/public/assets/snowy.svg';
 import Thunderstorm from '/Users/mariapokryshkina/Documents/REACT projects/weather-forecast-test/public/assets/thnderstorm.svg';
 
-
-interface DailyForecastProps {
-  className?: string;
-}
+interface DailyForecastCurrentProps {
+    className?: string;
+};
 
 const API_URL = 'https://api.open-meteo.com/v1/forecast';
 const LATITUDE = '59.9375'; 
 const LONGITUDE = '30.3086'; 
 const PARAMETERS = 'current_weather=true&daily=temperature_2m_min,apparent_temperature_max';
 
-export const DailyForecast: FC<DailyForecastProps> = ({ className }) => {
+export const DailyForecastCurrent: FC<DailyForecastCurrentProps> = ({ className }) => {
   const [temperature, setTemperature] = useState<number | null>(null);
-  const [minTemperature, setMinTemperature] = useState<number | null>(null);
   const [feelsLikeTemperature, setFeelsLikeTemperature] = useState<number | null>(null);
-  const [currentDate, setCurrentDate] = useState<string>('');
   const [weatherCode, setWeatherCode] = useState<number | null>(null);
 
   useEffect(() => {
@@ -39,7 +36,7 @@ export const DailyForecast: FC<DailyForecastProps> = ({ className }) => {
         const dailyWeather = response.data.daily;
 
         setTemperature(currentWeather.temperature);
-        setMinTemperature(dailyWeather.temperature_2m_min[0]); 
+
         setFeelsLikeTemperature(dailyWeather.apparent_temperature_max[0]); 
         setWeatherCode(currentWeather.weathercode);
       } catch (error) {
@@ -51,24 +48,18 @@ export const DailyForecast: FC<DailyForecastProps> = ({ className }) => {
 
     const now = new Date();
     const options: Intl.DateTimeFormatOptions = { weekday: 'short', day: 'numeric', month: 'long' };
-    setCurrentDate(now.toLocaleDateString('ru-RU', options));
-    const formattedDate = now.toLocaleDateString('ru-RU', options);
-    setCurrentDate(capitalizeFirstLetter(formattedDate));
+    
 
 
   }, []);
 
-    const capitalizeFirstLetter = (string: string) => {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-  };
 
-
-      const getWeatherIcon = (code: number | null) => {
+     const getWeatherIcon = (code: number | null) => {
     if (code === null) return null;
 
     const style = {
-      width: '39.7px',
-      height: '38px',
+      width: '180px',
+      height: '160px',
     };
 
     switch (code) {
@@ -115,34 +106,33 @@ export const DailyForecast: FC<DailyForecastProps> = ({ className }) => {
   };
 
 
-
   return (
-    <section className={cn('daily-forecast', className)}>
-      <div className="date">
+    <section className={cn('current-forecast', className)}>
+      {/* <div className="date">
         <h1>{currentDate}</h1>
+        </div> */}
+        <div className="weather">
+        <div className="current">
+                 {getWeatherIcon(weatherCode)}  
         </div>
-        <div className="current-temp">
-           {temperature !== null ? (
-              <>
-                 {`${temperature}° `} {getWeatherIcon(weatherCode)}
-              </>
-            ) : (
-              'Loading...'
-            )}
-        </div>
-        <div className="min-feel">
-          <div className="min-temp-text">
-            мин.
-            ощущ
-          </div>
-          <div className="min-feel-degrees">
-            {minTemperature !== null ? `
-             ${minTemperature}°`: 'Loading...' }
-            
-            {feelsLikeTemperature !== null ? `
-            ${feelsLikeTemperature}°` : 'Loading...'}
-          </div>
+        <div className="feel">
+                   <div className="current-temp">
+                           {temperature !== null ? (
+                     <>
+                        {`${temperature}° `} 
+                     </>
+                   ) : (
+                     'Loading...'
+                   )}
+                   </div>
+            <div className="feels-like-temp">
+                   Ощущается
+                {feelsLikeTemperature !== null ? `
+                ${feelsLikeTemperature}°` : 'Loading...'} 
+            </div>
+            </div>
         </div>
     </section>
   );
 };
+ç

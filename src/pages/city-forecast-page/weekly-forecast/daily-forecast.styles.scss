@@ -1,7 +1,6 @@
 @import '@styles';
 
 .daily-forecast {
-	box-sizing: border-box;
 	border: 1px;
     border-radius: 36px;
 	display: flex;
@@ -10,8 +9,8 @@
     justify-content: center;
     row-gap: 20px;
     width: 128.7px;
-    height: 190px;
-    padding: 20px 17px;
+    height: 170px;
+    padding: 10px 17px;
 	margin-right: 31.3px;
 	background-color: white;
 ;
@@ -27,9 +26,10 @@
 		font-size: 20px;
 		font-weight: 700;
 		display: flex;
-		flex-direction: row;
-		
+		flex-direction: row;	
 	}
+
+	
 
 	.min-temp-text{
 		font-size: 14px;

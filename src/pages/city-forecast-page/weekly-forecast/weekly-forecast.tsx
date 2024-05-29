@@ -7,8 +7,7 @@ import { CitySearch } from '../city-search/city-search';
 
 
 import './weekly-forecast.styles.scss';
-// import { SearchInput } from '@/components/search-input';
-import { Search } from '@/common/icons';
+// import { Search } from '@/common/icons';
 
 interface WeeklyForecastProps {
 	className?: string;
@@ -22,8 +21,6 @@ export const WeeklyForecast: FC<WeeklyForecastProps> = ( {
 		<section className={cn( 'weekly-forecast', className )}>
 			<h2 className="visually-hidden">Прогноз погоды</h2>
 			<section>
-				{/* <div className= "search-input">
-					<SearchInput /> */}
 					<div className="city-search">
 						<CitySearch />
 					</div>

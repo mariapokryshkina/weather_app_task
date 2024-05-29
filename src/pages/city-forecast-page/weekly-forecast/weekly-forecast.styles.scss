@@ -1,6 +1,10 @@
 @import '@styles';
 
-.search-input{
+.visually-hidden {
+	display: none;
+}
+
+.city-search{
 	padding-bottom: 30px;
 }
 .weekly-forecast {
