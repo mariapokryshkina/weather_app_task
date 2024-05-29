@@ -20,7 +20,10 @@ export const SearchInput: FC<SearchInputProps> = ( {
 				type="search"
 				{...props}
 			/>
+
 			<SearchIcon className="search-input__icon"/>
 		</div>
 	);
 };
+
+export default SearchInput;

@@ -3,10 +3,11 @@ import cn from 'classnames';
 
 import { Map } from '@/components/map';
 import { DailyForecast } from './daily-forecast';
+import { CitySearch } from '../city-search/city-search';
 
 
 import './weekly-forecast.styles.scss';
-import { SearchInput } from '@/components/search-input';
+// import { SearchInput } from '@/components/search-input';
 import { Search } from '@/common/icons';
 
 interface WeeklyForecastProps {
@@ -21,9 +22,11 @@ export const WeeklyForecast: FC<WeeklyForecastProps> = ( {
 		<section className={cn( 'weekly-forecast', className )}>
 			<h2 className="visually-hidden">Прогноз погоды</h2>
 			<section>
-				<div className= "search-input">
-					<SearchInput />
-				</div>
+				{/* <div className= "search-input">
+					<SearchInput /> */}
+					<div className="city-search">
+						<CitySearch />
+					</div>
 				<h3>Погода на неделю в Санкт-Петербурге</h3>
 				<div className="weekly-forecast__days"> 
 					<DailyForecast />
