@@ -45,9 +45,6 @@ export const DailyForecastCurrent: FC<DailyForecastCurrentProps> = ({ className 
     };
 
     fetchWeather();
-
-    const now = new Date();
-    const options: Intl.DateTimeFormatOptions = { weekday: 'short', day: 'numeric', month: 'long' };
     
 
 
@@ -116,7 +113,7 @@ export const DailyForecastCurrent: FC<DailyForecastCurrentProps> = ({ className 
                  {getWeatherIcon(weatherCode)}  
         </div>
         <div className="feel">
-                   <div className="current-temp">
+                   <div className="current-temperature">
                            {temperature !== null ? (
                      <>
                         {`${temperature}° `} 
@@ -135,4 +132,4 @@ export const DailyForecastCurrent: FC<DailyForecastCurrentProps> = ({ className 
     </section>
   );
 };
-ç
+

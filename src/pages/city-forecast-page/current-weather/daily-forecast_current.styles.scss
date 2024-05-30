@@ -3,16 +3,19 @@
 .weather {
     display: flex;
     flex-direction: row;
+     padding-top: 152.63px;
 }
 .current {
     display: flex;
     flex-direction: row;
 }
 
-.current-temp{
+.current-temperature{
         color: #FBFBFB;
         display: flex;
         flex-direction: row;
+        font-size: 79px;
+        font-weight: 600;
 	}
 
 .feel {
